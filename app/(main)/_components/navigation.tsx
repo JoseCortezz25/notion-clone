@@ -6,6 +6,8 @@ import { usePathname } from 'next/navigation';
 import React, { ElementRef, useEffect, useRef, useState } from 'react'
 import { useMediaQuery } from 'usehooks-ts';
 import UserItem from './user-item';
+import { useQuery } from 'convex/react';
+import { api } from '@/convex/_generated/api';
 
 const Navigation = () => {
   const pathname = usePathname();
@@ -16,6 +18,7 @@ const Navigation = () => {
   const navbarRef = useRef<ElementRef<'div'>>(null);
   const [isResetting, setIsResetting] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(isMobile);
+  const documents = useQuery(api.documents.get);
 
   useEffect(() => {
     if (isMobile) {
@@ -91,25 +94,27 @@ const Navigation = () => {
           isMobile && 'w-0'
         )}>
         <div
-          onClick={collapse}  
-          role="button" 
+          onClick={collapse}
+          role="button"
           className={
             cn('h-6 w-6 text-muted-foreground rounded-sm hover:gb-neutral-300 dark:hover:bg-neutral-600 absolute top-3 right-2 opacity-0 group-hover/sidebar:opacity-100 transition',
               isMobile && 'opacity-100'
             )}
-          >
+        >
           <ChevronsLeft className="h-6 w-6" />
         </div>
         <div>
           <UserItem />
         </div>
         <div className='mt-4'>
-          <p>Documents</p>
+          {documents?.map((document) => (
+            <p key={document._id}>{document.title}</p>
+          ))}
         </div>
-        <div 
-          onMouseDown={(event) => handleMouseDown(event)} 
-          onClick={resetWidth} 
-          className="opacity-0 group-hover/sidebar:opacity-100 transition cursor-ew-resize absolute h-full w-1 bg-primary/10 right-0 top-0" 
+        <div
+          onMouseDown={(event) => handleMouseDown(event)}
+          onClick={resetWidth}
+          className="opacity-0 group-hover/sidebar:opacity-100 transition cursor-ew-resize absolute h-full w-1 bg-primary/10 right-0 top-0"
         />
       </aside>
       <div ref={navbarRef} className={cn('absolute top-0 z-[99999] left-60 w-[calc(100%-140px)]', isResetting && 'transition-all ease-in-out duration-300', isMobile && 'left-0 w-full')}>
