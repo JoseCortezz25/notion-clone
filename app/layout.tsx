@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import { ThemeProvider } from '@/components/providers/theme-provider'
 import { ConvexClientProvider } from '@/components/providers/convex-provider'
 import { Toaster } from 'sonner'
+import { ModalProvider } from '@/components/providers/moda-provider'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -37,6 +38,7 @@ export default function RootLayout({
         <ConvexClientProvider>
           <ThemeProvider attribute='class' defaultTheme='light' enableSystem disableTransitionOnChange storageKey='Idea-theme-2'>
             <Toaster position="bottom-center" />
+            <ModalProvider />
             {children}
           </ThemeProvider>
         </ConvexClientProvider>

@@ -33,8 +33,6 @@ export const SearchCommand = () => {
 
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
-      console.log(e.key);
-
       if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
         e.preventDefault();
         toggle();
@@ -66,7 +64,6 @@ export const SearchCommand = () => {
         placeholder={`Search ${user?.fullName}'s documents`}
       />
       <CommandList>
-
         <CommandEmpty>No results found.</CommandEmpty>
         <CommandGroup heading="documents">
           {documents?.map((document) => (
