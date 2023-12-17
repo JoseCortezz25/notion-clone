@@ -1,5 +1,7 @@
 # Idea: Notion Clone
 
+![Notion Clone screenshot](https://raw.githubusercontent.com/JoseCortezz25/notion-clone/main/screenshot.png)
+
 ## Getting Started
 
 First, run the development server:
