@@ -13,17 +13,17 @@ const Logo = () => {
   return (
     <div className="hidden md:flex items-center gap-x-2">
       <Image
-        src="/logo.svg"
+        src="/logo-icon.svg"
         alt="Logo"
-        width="40"
-        height="40"
+        width="25"
+        height="25"
         className="dark:hidden"
       />
       <Image
-        src="/logo-dark.svg"
+        src="/logo-icon.svg"
         alt="Logo"
-        width="40"
-        height="40"
+        width="25"
+        height="25"
         className="hidden dark:block"
       />
       <p className={cn('font-semibold', font.className)}>
