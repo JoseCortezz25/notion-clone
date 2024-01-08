@@ -1,6 +1,6 @@
 # Idea: Notion Clone
 
-![Notion Clone screenshot](https://raw.githubusercontent.com/JoseCortezz25/notion-clone/main/screenshot.png)
+![Notion Clone screenshot](https://raw.githubusercontent.com/JoseCortezz25/notion-clone/main/screenshot2.png)
 
 ## Getting Started
 
